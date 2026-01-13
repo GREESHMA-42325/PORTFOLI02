@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greeshma - Portfolio</title>
+  <link rel="icon" href="./assets/img/favicon.png" />
+  <script src="https://kit.fontawesome.com/a9cdbedf57.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* ---------- THEME 1 (Blue Default) ---------- */
+    :root[data-theme="theme1"] {
+      --primary: #12bdff;
+      --primary-hover: #0c8ec2;
+      --dark-primary: #1b1f24;
+      --dark-secondary: #22282f;
+      --text-color: #c4c4c4;
+    }
+
+    /* ---------- THEME 2 (Red) ---------- */
+    :root[data-theme="theme2"] {
+      --primary: #ff5555;
+      --primary-hover: #e43232;
+      --dark-primary: #000;
+      --dark-secondary: #1e1b1b;
+      --text-color: #c4c4c4;
+    }
+
+    /* ---------- THEME 3 (Pink) ---------- */
+    :root[data-theme="theme3"] {
+      --primary: #ff29e4;
+      --primary-hover: #e01dc8;
+      --dark-primary: #4f1652;
+      --dark-secondary: #753980;
+      --text-color: #c4c4c4;
+    }
+
+    /* ---------- BASE STYLES ---------- */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap");
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Poppins", sans-serif; }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: var(--dark-primary);
+      padding: 25px;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1;
+    }
+
+    header .logo { color: var(--primary); margin-right: 130px; font-weight: 600; letter-spacing: 2px; }
+    header ul { display: flex; list-style: none; }
+    header ul li { margin-right: 30px; }
+    header ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    header ul li a:hover { color: var(--primary); }
+
+    section.hero-section {
+      background-color: var(--dark-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 100px 120px 50px 200px;
+    }
+    .hero-section__title { font-size: 48px; }
+    .hero-section__title span { color: var(--primary); }
+    .hero-section__desc { color: var(--text-color); }
+    .hero-img img { margin-left: 30px; border-radius: 15px; }
+
+    ul.social-icons {
+      list-style: none;
+      display: flex;
+      margin: 18px 0;
+    }
+    .social-icons li {
+      margin-right: 15px;
+      border-radius: 50%;
+      border: 1px solid var(--primary);
+      padding: 8px 12px;
+      transition: all 0.3s ease;
+    }
+    .social-icons li:hover { background-color: var(--primary); }
+    .social-icons li a { color: #fff; font-size: 18px; text-decoration: none; }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-primary { background-color: var(--primary); color: var(--dark-primary); }
+    .btn-primary:hover { background-color: var(--primary-hover); }
+    .btn-dark-outlined {
+      background-color: var(--dark-primary);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+    .btn-dark-outlined:hover { background-color: var(--primary); color: #fff; }
+
+    section.about-section {
+      background-color: var(--dark-secondary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+    }
+    .about-img img {
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 3px 5px 30px var(--primary-hover);
+      object-fit: cover;
+    }
+    .about-content { margin-left: 100px; max-width: 600px; }
+    .about-content h2 span { color: var(--primary); }
+    .about-content p { color: var(--text-color); }
+
+    section.projects-section {
+      background-color: var(--dark-primary);
+      color: #fff;
+      padding: 50px 120px;
+    }
+    .projects-section h2 { text-align: center; }
+    .projects-section h2 span { color: var(--primary); }
+    .projects-cards { display: flex; flex-wrap: wrap; justify-content: center; }
+    .projects-card-box {
+      background-color: var(--dark-secondary);
+      margin: 15px;
+      padding: 25px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      width: 300px;
+    }
+    .projects-card-box:hover { transform: translateY(-3px); box-shadow: 3px 5px 15px var(--primary-hover); }
+    .projects-card-box__icons i {
+      font-size: 30px;
+      border: 1px solid var(--primary);
+      border-radius: 50%;
+      padding: 15px;
+    }
+    .projects-card-box__desc h4 { margin: 15px 0 8px; }
+
+    section.contact-section {
+      background-color: var(--dark-secondary);
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    .contact-section h2 span { color: var(--primary); }
+    .contact-section input, textarea {
+      width: 300px;
+      background-color: #c4c4c4;
+      border-radius: 5px;
+      border: none;
+      padding: 8px;
+      margin-bottom: 10px;
+      outline: none;
+    }
+    .contact-section input:focus, textarea:focus { border: 1px solid var(--primary); }
+    .contact__github button { background-color: #171515; color: #fff; border: none; padding: 10px 30px; }
+    .contact__github button:hover { background-color: #000; }
+
+    footer {
+      background-color: var(--dark-primary);
+      color: gray;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 13px;
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+    .footer-buttons { margin-top: 10px; }
+    .footer-buttons button {
+      padding: 8px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1px solid var(--primary);
+      background-color: transparent;
+      color: var(--primary);
+    }
+    .footer-buttons button:hover { background-color: var(--primary); color: #fff; }
+    .active-theme { background-color: var(--primary); color: white; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; }
+      section.hero-section { flex-direction: column; padding: 50px; }
+      .hero-img img { display: none; }
+      .projects-cards { flex-direction: column; align-items: center; }
+      .projects-card-box { width: 90%; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div><a href="#"><span class="logo">WEB-DEVELOPER</span></a></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <section class="hero-section" id="home">
+      <div>
+        <h4>Hi, There!</h4>
+        <h2 class="hero-section__title">I'm <span>Greeshma</span></h2>
+        <p class="hero-section__desc">I am a Computer Science student skilled in Java, Python, and Web Development.</p>
+        <ul class="social-icons">
+          <li><a href="https://www.linkedin.com/in/kamalapuram-greeshma" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/GREESHMA-42325" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+        </ul>
+        <div class="hero-buttons">
+          <button class="btn btn-primary">Hire me</button>
+          <button class="btn btn-dark-outlined"><a href="./assets/my resume/resume.pdf" download>Download CV</a></button>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="assets/img/greeshma1.jpg" alt="Greeshma" width="350">
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-img"><img src="assets/img/greeshma2.jpg" alt="Greeshma"></div>
+      <div class="about-content">
+        <h4>About Me</h4>
+        <h2>I am a Software Developer & <span>Tech Enthusiast</span></h2>
+        <p>Hi, I'm Greeshma, a third-year Computer Science student passionate about programming and web development.</p>
+        <button class="btn btn-primary"><a href="https://github.com/GREESHMA-42325" target="_blank">Know More <i class="fa-solid fa-arrow-right-to-bracket"></i></a></button>
+      </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+      <h2>My <span>Projects</span></h2>
+      <div class="projects-cards">
+        <div class="projects-card-box">
+          <div class="projects-card-box__icons"><i class="fa-solid fa-map"></i></div>
+          <div class="projects-card-box__desc">
+            <h4>Secure Code Analyzer</h4>
+            <p>Developed a script to analyze PHP, JS, Python, and Java for insecure coding practices.</p>
+          </div>
+        </div>
+        <div class="projects-card-box">
+          <div class="projects-card-box__icons"><i class="fa-solid fa-store"></i></div>
+          <div class="projects-card-box__desc">
+            <h4>Cosmetic E-Commerce Webpage</h4>
+            <p>Developed a full-stack webpage using HTML, CSS, PHP, and MySQL.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <h2>Contact <span>ME!</span></h2>
+      <form>
+        <div><input type="text" placeholder="Full Name" required></div>
+        <div><input type="email" placeholder="Email" required></div>
+        <div><textarea rows="5" placeholder="Type Message"></textarea></div>
+        <div><button class="btn btn-primary">SEND MESSAGE</button></div>
+      </form>
+      <div class="contact__github">
+        <button><a href="https://github.com/GREESHMA-42325" target="_blank"><i class="fa-brands fa-github"></i> Github</a></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - <a href="https://github.com/GREESHMA-42325" target="_blank">Greeshma</a> - All Rights Reserved.</p>
+    <div class="footer-buttons">
+      <button data-theme="theme1" class="active-theme">Theme 1</button>
+      <button data-theme="theme2">Theme 2</button>
+      <button data-theme="theme3">Theme 3</button>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.setAttribute("data-theme", "theme1");
+    document.addEventListener("click", function (event) {
+      if (event.target.hasAttribute("data-theme")) {
+        const theme = event.target.getAttribute("data-theme");
+        document.documentElement.setAttribute("data-theme", theme);
+        document.querySelectorAll("[data-theme]").forEach(btn => btn.classList.remove("active-theme"));
+        event.target.classList.add("active-theme");
+      }
+    });
+  </script>
+</body>
+</html>
